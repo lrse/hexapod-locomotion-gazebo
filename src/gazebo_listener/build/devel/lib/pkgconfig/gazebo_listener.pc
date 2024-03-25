@@ -1,0 +1,8 @@
+prefix=/home/tania/Codigos/phantomx/src/gazebo_listener/build/devel
+
+Name: gazebo_listener
+Description: Description of gazebo_listener
+Version: 1.0.0
+Cflags: -I/home/tania/Codigos/phantomx/src/gazebo_listener/../../build
+Libs: -L${prefix}/lib -lgazebo_listener
+Requires: roscpp

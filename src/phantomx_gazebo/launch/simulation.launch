@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<launch>
+
+<include file="$(find gazebo_ros)/launch/empty_world.launch" />  
+
+<param name="robot_description" command="cat $(find phantomx_description)/urdf/phantomx.urdf"/>
+
+<node name="spawn_model"
+	  pkg="gazebo_ros"
+	  type="spawn_model"
+	  args="-file $(find phantomx_description)/urdf/phantomx.urdf -urdf -model phantomx_gazebo
+	  -x 0.0 
+	  -y 0.0 
+      -z 0.195
+	  -R 0.0
+	  -P 0.0 
+	  -Y 0.0"
+	  respawn="false" 			
+	  output="screen"/>
+
+<rosparam file="$(find phantomx_gazebo)/config/phantomx_control.yaml" command="load"/>
+
+<node name="controller_spawner" pkg="controller_manager" type="spawner" output="screen" ns="phantomx" 
+		args=" j_c1_lf_position_controller j_c1_rf_position_controller j_c1_lm_position_controller
+			   j_c1_rm_position_controller j_c1_lr_position_controller j_c1_rr_position_controller 
+			   j_thigh_lf_position_controller j_thigh_rf_position_controller j_thigh_lm_position_controller 
+			   j_thigh_rm_position_controller j_thigh_lr_position_controller j_thigh_rr_position_controller 
+			   j_tibia_lf_position_controller j_tibia_rf_position_controller j_tibia_lm_position_controller 
+			   j_tibia_rm_position_controller j_tibia_lr_position_controller j_tibia_rr_position_controller joint_state_controller"/> 
+
+<!-- convert joint states to TF transforms for rviz, etc -->
+<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+respawn="false" output="screen">
+<remap from="/joint_states" to="/phantomx/joint_states" />
+</node>
+  
+</launch>

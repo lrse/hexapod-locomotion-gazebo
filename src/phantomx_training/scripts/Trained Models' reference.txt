@@ -1,0 +1,3 @@
+phantomx5: trained aprox 3 million steps (maybe some 400k before, can't remember), seems to be learning. Used zero initial condition but changed the termination logic to stop if the linear velocity error of the last 100 steps is too big (absolute value of the heading error bigger than pi/2) in avarage (the first 100 steps it trains no matter what). Not checking for angular velocity, and it seems to do better following the linear velocity command, might do well to add this.
+
+phantomx6: went back to original termination condition, but with initial position for each joint random. Trained aprox 2.5 million steps, but it doesn't seem to be learning.

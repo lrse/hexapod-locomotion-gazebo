@@ -1,0 +1,31 @@
+Note: make sure you have installed all types of ROS controllers:
+$ sudo apt-get install ros-noetic-joint-state-controller : This will install joint_state_controller package
+
+$ sudo apt-get install ros-noetic-effort-controllers : This will install Effort controller
+
+$ sudo apt-get install ros-noetic-position-controllers : This will install position controllers
+
+
+
+After cloning git, do the following steps:
+1) Workspace with catkin
+	cd src && catkin_init_workspace
+	cd .. && catkin_make
+2) Go to the folder phantomx_heightmap_plugin (erase folder build if it exists)
+	sh install.sh
+3) From parent folder phantomx, do source and export plugin 
+	source devel/setup.bash
+	export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:/home/nromero/Robots/phantomx/src/phantomx_heightmap_plugin/build  # To run the heightmaps plugins 
+	# export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:/home/tania/Codigos/phantomx/src/phantomx_heightmap_plugin/build
+4) Compile server from phantomx_training/scripts 
+	mkdir build
+	cd build
+	cmake ..
+	make
+
+To train policy, from phantomx_training/scripts:
+1) roslaunch phantomx run_robot_gazebo.launch
+2) run server:
+	./server
+3) run main.py
+

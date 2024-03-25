@@ -1,0 +1,15 @@
+Importante:
+1) Verificar las cuentas de la cinemática inversa que acomoda la base.
+2) ¿Ver cómo comandar desde Gazebo para simular más rápido? (Ver si sale rápido con Simulink)
+3) ¿Ver cómo gráficar o mostrar ground truth? (Ver si sale rápido con Simulink)
+4) Comandar los ángulos de una pata.
+5) Que el bicho camine con caminata básica.
+
+Importante pero no urgente:
+1) Verificar los parámetros del robot (long de las partes y ángulo de las patas respecto al centro de la base).
+
+
+Detalles de código:
+1) main.cpp en main: argc y argv are variables that can pass certain parameters,but for now they're not being used (and we don't know how to (TODO)).
+2) En main.cpp, al final del while(ros::ok()) se usa spinOnce(), pero hay que checkear que hace lo que creemos que hace.
+3) Revisar el código y cambiar los nombres para que el código se entienda mejor.

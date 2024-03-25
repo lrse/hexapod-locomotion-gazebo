@@ -1,0 +1,8 @@
+<launch>
+    <!-- Gazebo Simulation -->
+    <include file="$(find phantomx_gazebo)/launch/simulation.launch" />  
+    <!-- <include file="$(find phantomx_training)/launch/terrain.launch" /> --> 
+
+    <!-- Robot Gazebo Listener get the contact forces (plugins) --> 
+    <include file="$(find gazebo_listener)/launch/gazebo_listener.launch"/>  
+</launch>

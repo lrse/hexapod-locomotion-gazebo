@@ -1,0 +1,9 @@
+.vscode/
+src/.vscode/
+src/phantomx_controller/.vscode/
+src/phantomx_heightmap_plugin/build/
+src/phantomx_training/scripts/log/
+src/phantomx_training/models/
+src/phantomx_training/scripts/old_logs
+src/phantomx_training/scripts/old_models
+

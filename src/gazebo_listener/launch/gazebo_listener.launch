@@ -1,0 +1,5 @@
+<launch>
+    <!-- Robot controller -->
+    <node pkg="gazebo_listener" type="robot_gazebo_listener"
+        name="GAZEBO_LISTENER" output="screen"/>
+</launch>

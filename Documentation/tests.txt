@@ -1,0 +1,138 @@
+1) Probar usando la red que teniamos antes. 
+
+2) Probar usando la custom network para el actor y la vieja para el critic.
+
+3) Sanity checks para cada componente de la funcion de refuerzo.
+
+4) Listar TODOS Los hiperparametros que tenemos. Ej: Learning rate para la red neuronal para ser algo super importante. Que grafico podemos usar para entender si hay que subir o bajarlo?
+
+
+
+_r_lv.
+agarra la velociddad de la base
+y la direccion del comando siempre esta normalizado
+
+
+_r_av_
+
+w_commander es un escalar.
+angular velocity
+1: girar antihorario
+-1 horario
+0 quieto
+
+w_base: velocidad angular en z
+de la base. del yaw
+
+
+sentido antihorario: w_base
+aumenta el angulo
+entonces es positivo
+
+y en sentido horario
+es negaiivo
+
+------
+
+producto interno entre
+la velocidad de la base
+y la velocidad del comando
+
+puedo descomponer con el coseno
+la proyeccion de la base sobre
+la direc
+
+y con el seno contra el ortogonal
+a la direccion
+
+v = vc + vo
+
+donde vc: componente sobre direcc
+vo: componente sobre ortogonal
+
+Esto es en z
+
+*-----
+
+r_b_
+
+la norma de la proyeccion
+sobre la ortogonal al comando
+
+
+v_pr: es la cantidad
+de proyeccion
+de la base que esta en la direcc
+del comando
+
+a la velocidad de la base el resto esa
+proyeccion, me queda la cantidad de
+componente que esta sobre la ortogonal
+al comando
+
+mientras mayor sea esta cantidad estoy yendo
+rtogonal
+a donde defini mi
+commando
+
+codigo
+
+vel_base
+vel_commander
+
+w_base: velocidad angular de la base.
+
+no quiero que gire en X_Y. ojo, no en z.
+
+---------
+
+foot clearence reward
+
+para cada una de las patas que estan
+en la fase de swing (despegadas) del piso
+
+la fase de las patas me las da
+el foot trajectory generator
+
+la fase es un angulo entre 0 y 2pi
+
+si esta entre pi y 2p levantado
+0 y pi esta apoyado en el piso
+
+forzando el swing size podemos forzar
+patrones de caminata
+
+
+ls_r contiene posiciones de las patas
+
+----
+
+----
+
+r_bc
+
+contacto. cuando se chocan las patas entre si
+
++----
+
+rs
+
+la red neuronal calcula los delta_r
+121 gait planning
+se genera el vector r. es donde quiero ir con la pata.
+
+el termino rs toma la derivada segunda 
+
+smooth gait
+
+*---
+rtau
+----
+
+Por ahora es 0
+hacer el paso para ahorrar la mayor cantidad de energia
+
+--------
+
+
+---------------
