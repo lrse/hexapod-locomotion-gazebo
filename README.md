@@ -1,4 +1,4 @@
-# hexapod-locomotion
+# hexapod-locomotion-gazebo
 
 Locomotion control for a PhantomX hexapod robot simulated with Gazebo.
 
